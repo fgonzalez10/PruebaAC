@@ -1,4 +1,4 @@
-package com.fgonzalez.prueba_ac;
+package com.fgonzalez.prueba_ac.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
