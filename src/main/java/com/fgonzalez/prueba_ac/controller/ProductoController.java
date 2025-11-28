@@ -32,13 +32,13 @@ public class ProductoController {
         }
 
         @GetMapping("/buscar/nombre")
-        public ResponseEntity<List<Producto>> buscarPorNombre(@RequestParam String q) {
-            return ResponseEntity.ok(productoService.buscarPorNombre(q));
+        public ResponseEntity<List<Producto>> buscarPorNombre(@RequestParam String marca) {
+            return ResponseEntity.ok(productoService.buscarPorNombre(marca));
         }
 
         @GetMapping("/buscar/marca")
-        public ResponseEntity<List<Producto>> buscarPorMarca(@RequestParam String q) {
-            return ResponseEntity.ok(productoService.buscarPorMarca(q));
+        public ResponseEntity<List<Producto>> buscarPorMarca(@RequestParam String marca) {
+            return ResponseEntity.ok(productoService.buscarPorMarca(marca));
         }
 
         @PostMapping
