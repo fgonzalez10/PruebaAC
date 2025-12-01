@@ -32,8 +32,8 @@ public class ProductoController {
         }
 
         @GetMapping("/buscar/nombre")
-        public ResponseEntity<List<Producto>> buscarPorNombre(@RequestParam String marca) {
-            return ResponseEntity.ok(productoService.buscarPorNombre(marca));
+        public ResponseEntity<List<Producto>> buscarPorNombre(@RequestParam String nombre) {
+            return ResponseEntity.ok(productoService.buscarPorNombre(nombre));
         }
 
         @GetMapping("/buscar/marca")

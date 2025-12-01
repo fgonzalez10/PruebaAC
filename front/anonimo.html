@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Panel Usuario</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+
+<body class="bg-light">
+
+
+<nav class="navbar navbar-dark bg-dark">
+    <div class="container-fluid">
+        <span class="navbar-brand">Panel Usuario</span>
+        <button class="btn btn-outline-light" onclick="logout()">Cerrar sesión</button>
+    </div>
+</nav>
+
+<div class="container mt-4">
+    <h3>Bienvenido, <span id="nombreUsuario"></span></h3>
+    <p>Puedes ver productos, pero no administrarlos.</p>
+
+    <button class="btn btn-primary" onclick="window.location.href='productos.html'">
+        Ver Productos
+    </button>
+</div>
+
+<script>
+    function logout() {
+        localStorage.removeItem("usuario");
+        window.location.href = "login.html";
+    }
+</script>
+
+</body>
+<script>
+    const usuario = JSON.parse(localStorage.getItem("usuario"));
+    if (!usuario) window.location.href = "login.html";
+    if (usuario.rol !== "ANONIMO") window.location.href = "admin.html";
+    document.getElementById("nombreUsuario").innerText = usuario.nombre;
+
+</script>
+</html>

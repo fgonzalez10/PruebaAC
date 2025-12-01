@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Panel Administrador</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body class="bg-light">
+
+
+
+<nav class="navbar navbar-dark bg-dark">
+    <div class="container-fluid">
+        <span class="navbar-brand">Panel de Administración</span>
+        <span class="text-white">Usuario: <strong id="nombreUsuario"></strong></span>
+        <button class="btn btn-outline-light" onclick="logout()">Cerrar sesión</button>
+    </div>
+</nav>
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Bienvenido, Administrador</h2>
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-4">
+            <div class="card shadow-sm p-3 text-center" onclick="window.location.href='productos.html'">
+                <h3 class="card-title">Productos</h3>
+                <p class="text-muted">Administrar productos (crear, editar, eliminar).</p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow-sm p-3 text-center" onclick="window.location.href='usuarios.html'">
+                <h3 class="card-title">Usuarios</h3>
+                <p class="text-muted">Administrar usuarios y roles.</p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow-sm p-3 text-center" onclick="window.location.href='bitacoraLog.html'">
+                <h3 class="card-title">Historial</h3>
+                <p class="text-muted">Ver log de cambios y auditoría.</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script src="js/auth.js"></script>
+
+<script>
+    // Validar sesión
+    const usuario = JSON.parse(localStorage.getItem("usuario"));
+    if (!usuario) {
+        window.location.href = "login.html";
+    }
+
+    // Validar rol
+    if (usuario.rol !== "ADMIN") {
+        alert("No tienes permisos.");
+        window.location.href = "dashboard_usuario.html";
+    }
+    document.getElementById("nombreUsuario").innerText = usuario.nombre;
+</script>
+</body>
+</html>
