@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Productos</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+
+<body class="bg-light">
+
+<nav class="navbar navbar-dark bg-dark mb-4">
+    <div class="container-fluid">
+        <span class="navbar-brand">Usuarios</span>
+        <button class="btn btn-outline-light" onclick="volver()">Volver</button>
+    </div>
+</nav>
+
+<div class="container mt-4">
+
+    <div class="text-end mb-3">
+        <button id="btnNuevo" class="btn btn-primary">Nuevo Producto</button>
+    </div>
+    <div class="row mb-4">
+        <div class="col-md-4">
+            <input id="busqueda" class="form-control" placeholder="Buscar producto...">
+        </div>
+        <div class="col-md-4">
+            <select id="tipoBusqueda" class="form-select">
+                <option value="nombre">Por nombre</option>
+                <option value="marca">Por marca</option>
+            </select>
+        </div>
+        <div class="col-md-2">
+            <button class="btn btn-primary w-100" onclick="buscar()">Buscar</button>
+        </div>
+        <div class="col-md-2">
+            <button class="btn btn-secondary w-100" onclick="cargarProductos()">Limpiar</button>
+        </div>
+    </div>
+    <table class="table table-bordered table-striped">
+        <thead class="table-dark">
+        <tr>
+            <th>SKU</th>
+            <th>Nombre</th>
+            <th>Marca</th>
+            <th>Precio</th>
+            <th id="colAdmin">Acciones</th>
+        </tr>
+        </thead>
+        <tbody id="tbodyProductos"></tbody>
+    </table>
+</div>
+
+<!-- Modal Crear/Editar -->
+<div class="modal fade" id="modalProducto" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h5 id="tituloModal" class="modal-title"></h5>
+                <button class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <div class="modal-body">
+
+                <label>SKU</label>
+                <input id="sku" class="form-control mb-2">
+
+                <label>Nombre</label>
+                <input id="nombre" class="form-control mb-2">
+
+                <label>Marca</label>
+                <input id="marca" class="form-control mb-2">
+
+                <label>Precio</label>
+                <input type="number" id="precio" class="form-control mb-2">
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button class="btn btn-success" onclick="guardarProducto()">Guardar</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" ></script>
+
+<script src="js/auth.js"></script>
+<script src="js/productos.js"></script>
+
+</body>
+</html>

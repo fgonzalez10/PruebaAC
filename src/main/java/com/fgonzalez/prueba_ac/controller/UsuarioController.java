@@ -12,7 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/usuarios")
-@CrossOrigin(origins = "*")  // Para que el frontend pueda consumir la API
+@CrossOrigin(origins = "*")
 public class UsuarioController {
 
     @Autowired
@@ -40,8 +40,13 @@ public class UsuarioController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
+    @GetMapping("/email-contain")
+    public List<Usuario> buscarPorEmailContain(@RequestParam String email) {
+        return usuarioService.findByEmailContainingIgnoreCase(email);
+    }
+
     @PostMapping
-    public ResponseEntity<?> crear(@RequestBody Usuario usuario, Long idUsuario) {
+    public ResponseEntity<?> crear(@RequestBody Usuario usuario, @RequestParam Long idUsuario) {
         try {
             validacionService.validarAdmin(idUsuario);
             Usuario nuevoUsuario = usuarioService.crear(usuario);
@@ -52,7 +57,7 @@ public class UsuarioController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> actualizar(@PathVariable Long id, @RequestBody Usuario usuario, Long idUsuario) {
+    public ResponseEntity<?> actualizar(@PathVariable Long id, @RequestBody Usuario usuario, @RequestParam Long idUsuario) {
         try {
             validacionService.validarAdmin(idUsuario);
             Usuario actualizado = usuarioService.actualizar(id, usuario);
@@ -63,7 +68,7 @@ public class UsuarioController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> eliminar(@PathVariable Long id, Long idUsuario) {
+    public ResponseEntity<?> eliminar(@PathVariable Long id, @RequestParam Long idUsuario) {
         try {
             validacionService.validarAdmin(idUsuario);
             usuarioService.eliminar(id);

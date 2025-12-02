@@ -2,11 +2,8 @@ package com.fgonzalez.prueba_ac.service;
 
 import com.fgonzalez.prueba_ac.model.BitacoraLog;
 import com.fgonzalez.prueba_ac.model.Producto;
-import com.fgonzalez.prueba_ac.model.Rol;
-import com.fgonzalez.prueba_ac.model.Usuario;
 import com.fgonzalez.prueba_ac.repository.ProductoRepository;
 import com.fgonzalez.prueba_ac.repository.BitacoraLogRepository;
-import org.springdoc.core.service.SecurityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

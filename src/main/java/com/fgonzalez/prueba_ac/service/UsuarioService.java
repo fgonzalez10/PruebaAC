@@ -26,6 +26,10 @@ public class UsuarioService {
         return usuarioRepository.findById(id);
     }
 
+    public List<Usuario> findByEmailContainingIgnoreCase(String email) {
+        return usuarioRepository.findByEmailContainingIgnoreCase(email);
+    }
+
     public Optional<Usuario> obtenerPorEmail(String email) {
         return usuarioRepository.findByEmail(email);
     }

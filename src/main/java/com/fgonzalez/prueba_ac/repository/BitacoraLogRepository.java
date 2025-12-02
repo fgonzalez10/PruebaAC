@@ -11,5 +11,5 @@ public interface BitacoraLogRepository extends JpaRepository<BitacoraLog, Long> 
 
     List<BitacoraLog> findByIdProductoOrderByFechaDesc(Long idProducto);
 
-    List<BitacoraLog> findByIdUsuarioOrderByFechaDesc(Long idUsuario);
+
 }
